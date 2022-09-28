@@ -8,19 +8,29 @@
 
 Console.Clear();
 Console.Write("Введите число А: ");
-int numberA = int.Parse(Console.ReadLine()!);
+int number = int.Parse(Console.ReadLine()!);
 Console.Write("Введите число В: ");
-int numberB = int.Parse(Console.ReadLine()!);
+int power = int.Parse(Console.ReadLine()!);
 
-int Power(int firstNumber, int secondNumber)
+int toPower(int number, int power)
 {
+    validate(power);
     int result = 1;
-    for (int i = 1; i <= secondNumber; i++)
+    for (int i = 1; i <= power; i++)
     {
-        result = result * firstNumber;
+        result = result * number;
     }
+
     return result;
 }
 
-int calculationResult = Power(numberA, numberB);
+void validate(int power)
+{
+    if (power < 0)
+    {
+        throw new Exception("Ошибка ввода");
+    }
+}
+
+int calculationResult = toPower(number, power);
 Console.WriteLine(calculationResult);
