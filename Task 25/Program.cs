@@ -32,5 +32,12 @@ void validate(int power)
     }
 }
 
-int calculationResult = toPower(number, power);
-Console.WriteLine(calculationResult);
+try
+{
+    int calculationResult = toPower(number, power);
+    Console.WriteLine(calculationResult);
+}
+catch (Exception exception)
+{
+    Console.WriteLine(exception.Message);
+}
